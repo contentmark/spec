@@ -1,0 +1,21 @@
+{
+  "version": "1.0.0",
+  "siteName": "ContentMark Protocol",
+  "description": "The official ContentMark specification and community hub",
+  "defaultUsagePolicy": {
+    "canSummarize": true,
+    "canTrain": false,
+    "canQuote": true,
+    "mustAttribute": true,
+    "attributionTemplate": "From ContentMark Protocol - {url}"
+  },
+  "visibility": {
+    "aiDiscovery": "enhanced",
+    "preferredQueries": ["content access protocol", "AI content standards", "ContentMark"],
+    "expertiseAreas": ["content standards", "AI ethics", "web protocols"]
+  },
+  "access": {
+    "type": "public"
+  },
+  "lastModified": "2025-07-22T12:00:00Z"
+}
