@@ -1,0 +1,36 @@
+{
+  "$schema": "https://contentmark.org/schema/v1.0.0/contentmark.schema.json",
+  "version": "1.0.0",
+  "siteName": "Tech Insights Blog",
+  "description": "Daily insights on technology trends, programming tutorials, and startup advice",
+  "feeds": [
+    {
+      "type": "blog",
+      "url": "https://techinsights.blog/contentmark-feed.json",
+      "title": "Latest Articles",
+      "description": "Recent blog posts and tutorials"
+    }
+  ],
+  "defaultUsagePolicy": {
+    "canSummarize": true,
+    "canTrain": false,
+    "canQuote": true,
+    "mustAttribute": true,
+    "attributionTemplate": "From {siteName} - {url}"
+  },
+  "monetization": {
+    "tipJar": "https://buymeacoffee.com/techinsights"
+  },
+  "access": {
+    "type": "public",
+    "previewAvailable": true
+  },
+  "renderHints": {
+    "preferredFormat": "summary-first",
+    "callToAction": {
+      "text": "Read the full article",
+      "url": "https://techinsights.blog"
+    }
+  },
+  "lastModified": "2025-07-22T15:30:00Z"
+}
