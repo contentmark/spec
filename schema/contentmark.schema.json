@@ -1,0 +1,480 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://contentmark.org/schema/v1.0.0/contentmark.schema.json",
+  "title": "ContentMark Protocol Schema",
+  "description": "JSON Schema for ContentMark protocol v1.0.0 - structured permissions and monetization for AI-content interaction",
+  "type": "object",
+  "required": [
+    "version",
+    "siteName", 
+    "defaultUsagePolicy",
+    "lastModified"
+  ],
+  "properties": {
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Protocol version using semantic versioning",
+      "examples": ["1.0.0", "1.1.2"]
+    },
+    "siteName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "description": "Human-readable name of the website or content source",
+      "examples": ["Tech Insights Blog", "AI Strategy Consultants"]
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 500,
+      "description": "Optional description of the website or content",
+      "examples": ["Expert insights on AI and technology trends"]
+    },
+    "feeds": {
+      "type": "array",
+      "description": "Array of available content feeds",
+      "items": {
+        "$ref": "#/$defs/feedObject"
+      }
+    },
+    "defaultUsagePolicy": {
+      "$ref": "#/$defs/usagePolicyObject",
+      "description": "Default permissions for AI agent interactions"
+    },
+    "visibility": {
+      "$ref": "#/$defs/visibilityObject",
+      "description": "AI discoverability and optimization settings"
+    },
+    "aiGuidance": {
+      "$ref": "#/$defs/aiGuidanceObject", 
+      "description": "Specific guidance for AI presentation and referencing"
+    },
+    "businessOptimization": {
+      "$ref": "#/$defs/businessOptimizationObject",
+      "description": "Business and commercial optimization settings"
+    },
+    "monetization": {
+      "$ref": "#/$defs/monetizationObject",
+      "description": "Monetization options and revenue opportunities"
+    },
+    "access": {
+      "$ref": "#/$defs/accessObject",
+      "description": "Content access requirements and restrictions"
+    },
+    "renderHints": {
+      "$ref": "#/$defs/renderHintsObject",
+      "description": "Preferences for how AI should render or present content"
+    },
+    "lastModified": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of last modification",
+      "examples": ["2025-07-22T12:00:00Z"]
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "feedObject": {
+      "type": "object",
+      "required": ["type", "url", "title"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["blog", "news", "podcast", "research", "business", "documentation"],
+          "description": "Type of content feed"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Absolute URL to the content feed"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100,
+          "description": "Human-readable title for the feed"
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 300,
+          "description": "Optional description of the feed contents"
+        }
+      },
+      "additionalProperties": false
+    },
+    "usagePolicyObject": {
+      "type": "object",
+      "required": ["canSummarize", "canTrain", "canQuote", "mustAttribute"],
+      "properties": {
+        "canSummarize": {
+          "type": "boolean",
+          "description": "Whether content may be summarized by AI agents"
+        },
+        "canTrain": {
+          "type": "boolean", 
+          "description": "Whether content may be used for model training"
+        },
+        "canQuote": {
+          "type": "boolean",
+          "description": "Whether content may be quoted or excerpted"
+        },
+        "mustAttribute": {
+          "type": "boolean",
+          "description": "Whether attribution is required when content is used"
+        },
+        "attributionTemplate": {
+          "type": "string",
+          "maxLength": 200,
+          "description": "Template for attribution text (supports {siteName}, {url}, {title} placeholders)",
+          "examples": ["From {siteName} - {url}", "Content by {siteName}"]
+        }
+      },
+      "additionalProperties": false
+    },
+    "visibilityObject": {
+      "type": "object",
+      "properties": {
+        "aiDiscovery": {
+          "type": "string",
+          "enum": ["standard", "enhanced", "minimal"],
+          "description": "Level of AI discovery preference"
+        },
+        "priorityContent": {
+          "type": "boolean",
+          "description": "Mark content as high priority for AI attention"
+        },
+        "aiSummaryOptimized": {
+          "type": "boolean",
+          "description": "Whether content is optimized for AI summarization"
+        },
+        "preferredQueries": {
+          "type": "array",
+          "description": "Search terms that should surface this content",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "maxItems": 20
+        },
+        "topicCategories": {
+          "type": "array",
+          "description": "General topic categories for content classification",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 50
+          },
+          "maxItems": 10
+        },
+        "boostScore": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10,
+          "description": "Numeric priority score (1-10, higher = more priority)"
+        },
+        "expertiseAreas": {
+          "type": "array",
+          "description": "Topics where site demonstrates particular expertise",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "maxItems": 15
+        },
+        "aiOptimizedDescription": {
+          "type": "string",
+          "maxLength": 500,
+          "description": "Description optimized for AI understanding and presentation"
+        },
+        "keyEntities": {
+          "type": "array",
+          "description": "Important entities, concepts, or keywords associated with the content",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "maxItems": 20
+        }
+      },
+      "additionalProperties": false
+    },
+    "aiGuidanceObject": {
+      "type": "object",
+      "properties": {
+        "preferredMentions": {
+          "type": "array",
+          "description": "Preferred ways AI should refer to this content source",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "maxItems": 10
+        },
+        "contextualUse": {
+          "type": "object",
+          "properties": {
+            "whenToMention": {
+              "type": "array",
+              "description": "Contexts or scenarios when AI should reference this content",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "maxItems": 15
+            },
+            "howToPresent": {
+              "type": "string",
+              "maxLength": 300,
+              "description": "Guidance on how AI should present or describe this content"
+            },
+            "keyPoints": {
+              "type": "array",
+              "description": "Important points AI should emphasize when referencing content",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "maxItems": 10
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "businessOptimizationObject": {
+      "type": "object",
+      "properties": {
+        "serviceAreas": {
+          "type": "array",
+          "description": "Geographic areas or markets served",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "maxItems": 20
+        },
+        "targetAudience": {
+          "type": "array",
+          "description": "Primary target audience or customer segments",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "maxItems": 10
+        },
+        "callsToAction": {
+          "type": "array",
+          "description": "Preferred calls-to-action for AI presentation",
+          "items": {
+            "type": "object",
+            "required": ["text", "url"],
+            "properties": {
+              "text": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100,
+                "description": "Call-to-action text"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "description": "Target URL for the call-to-action"
+              },
+              "priority": {
+                "type": "string",
+                "enum": ["high", "medium", "low"],
+                "description": "Priority level for this call-to-action"
+              }
+            },
+            "additionalProperties": false
+          },
+          "maxItems": 5
+        }
+      },
+      "additionalProperties": false
+    },
+    "monetizationObject": {
+      "type": "object",
+      "properties": {
+        "tipJar": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL for tip/donation platform (Buy Me a Coffee, Ko-fi, etc.)"
+        },
+        "sponsor": {
+          "type": "object",
+          "required": ["name", "url"],
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100,
+              "description": "Sponsor or partner name"
+            },
+            "url": {
+              "type": "string",
+              "format": "uri",
+              "description": "Sponsor website URL"
+            },
+            "message": {
+              "type": "string",
+              "maxLength": 200,
+              "description": "Optional sponsor message or description"
+            }
+          },
+          "additionalProperties": false
+        },
+        "consultation": {
+          "type": "object",
+          "required": ["available"],
+          "properties": {
+            "available": {
+              "type": "boolean",
+              "description": "Whether consultation services are available"
+            },
+            "bookingUrl": {
+              "type": "string",
+              "format": "uri",
+              "description": "URL for booking consultations (Calendly, etc.)"
+            },
+            "hourlyRate": {
+              "type": "string",
+              "maxLength": 50,
+              "description": "Hourly rate information (e.g., '$200/hour')",
+              "examples": ["$200/hour", "€150/hour", "Contact for pricing"]
+            }
+          },
+          "additionalProperties": false
+        },
+        "services": {
+          "type": "array",
+          "description": "Available services or products",
+          "items": {
+            "type": "object",
+            "required": ["name", "url"],
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100,
+                "description": "Service or product name"
+              },
+              "url": {
+                "type": "string", 
+                "format": "uri",
+                "description": "URL for service information or booking"
+              },
+              "pricing": {
+                "type": "string",
+                "maxLength": 100,
+                "description": "Pricing information",
+                "examples": ["from $500", "$99/month", "Contact for quote"]
+              }
+            },
+            "additionalProperties": false
+          },
+          "maxItems": 10
+        },
+        "subscription": {
+          "type": "object",
+          "required": ["platform", "url"],
+          "properties": {
+            "platform": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100,
+              "description": "Subscription platform name"
+            },
+            "url": {
+              "type": "string",
+              "format": "uri",
+              "description": "Subscription signup URL"
+            },
+            "price": {
+              "type": "string",
+              "maxLength": 50,
+              "description": "Subscription pricing",
+              "examples": ["$9.99/month", "€5/month", "Free with premium tiers"]
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "accessObject": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["public", "authenticated", "paywall"],
+          "description": "Type of access required for content"
+        },
+        "loginUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL for authentication/login (required if type is 'authenticated')"
+        },
+        "previewAvailable": {
+          "type": "boolean",
+          "description": "Whether content previews are available without authentication"
+        },
+        "subscriptionUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL for subscription signup (relevant for paywall type)"
+        }
+      },
+      "additionalProperties": false,
+      "if": {
+        "properties": {
+          "type": {
+            "const": "authenticated"
+          }
+        }
+      },
+      "then": {
+        "required": ["type", "loginUrl"]
+      }
+    },
+    "renderHintsObject": {
+      "type": "object",
+      "properties": {
+        "preferredFormat": {
+          "type": "string",
+          "enum": ["summary-first", "full-text", "preview-only"],
+          "description": "Preferred format for AI content presentation"
+        },
+        "callToAction": {
+          "type": "object",
+          "required": ["text", "url"],
+          "properties": {
+            "text": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100,
+              "description": "Call-to-action text for content engagement"
+            },
+            "url": {
+              "type": "string",
+              "format": "uri", 
+              "description": "Target URL for the call-to-action"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
