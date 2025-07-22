@@ -143,7 +143,7 @@ ContentMark fixes this by providing:
 ## Tools & Resources
 
 - [**Validator**](https://github.com/contentmark/cli) - Validate your ContentMark files
-- [**CLI Tools**](https://github.com/contentmark/cli) - Command-line utilities
+- [**CLI Tools**](https://github.com/contentmark/cli) - Command-line utilities with 7 templates, batch processing, and multiple output formats
 - [**Website**](https://contentmark.org) - Official ContentMark website
 - [**Community**](https://github.com/contentmark/spec/discussions) - Join the discussion
 

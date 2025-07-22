@@ -118,7 +118,7 @@ Use our online validator at **https://contentmark.org/validate** or:
 1. **Check JSON syntax** with any JSON validator
 2. **Validate against schema** using our JSON Schema
 3. **Test accessibility** with `curl https://yoursite.com/.well-known/contentmark.json`
-4. **Use CLI tools** (coming soon)
+4. **Use CLI tools** (`npm install -g @contentmark/cli`)
 
 ### Can I have multiple ContentMark files?
 

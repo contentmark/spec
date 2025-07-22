@@ -13,9 +13,10 @@ This directory contains information about tools, utilities, and integrations for
 - Error reporting with suggestions
 - URL validation for remote files
 
-### CLI Validator (Coming Soon)
+### CLI Tools
 **Repository**: [@contentmark/cli](https://github.com/contentmark/cli)  
 **Installation**: `npm install -g @contentmark/cli`  
+**Status**: Available  
 **Usage**:
 ```bash
 # Validate local file
@@ -26,7 +27,23 @@ contentmark validate https://example.com/.well-known/contentmark.json
 
 # Generate sample file
 contentmark generate --type blog > .contentmark.json
+
+# Check website for ContentMark support
+contentmark check https://example.com
+
+# Batch check multiple websites
+contentmark batch-check urls.txt --format json
+
+# Initialize ContentMark in current directory
+contentmark init --type business
 ```
+
+**Features**:
+- Multiple output formats (JSON, YAML, summary)
+- Batch processing with progress indicators
+- Configuration file support (.contentmarkrc.json)
+- 7 template types: blog, business, premium, ecommerce, news, education, api
+- Enhanced error reporting and validation
 
 ### Browser Extension (Planned)
 **Purpose**: Detect and validate ContentMark support on websites  
@@ -55,6 +72,37 @@ markdown-to-contentmark posts/*.md --output .contentmark.json
 **Purpose**: Convert YAML-based configurations to ContentMark JSON  
 **Online Tool**: https://yaml-to-json.com  
 **Usage**: Paste YAML configuration, get valid ContentMark JSON
+
+### Configuration File Support
+**File**: `.contentmarkrc.json`  
+**Purpose**: Configure CLI behavior and default settings  
+**Location**: Project root or user home directory  
+
+**Example Configuration**:
+```json
+{
+  "validation": {
+    "schemaUrl": "https://schema.contentmark.org/v1/manifest.json",
+    "strictMode": false,
+    "customRules": []
+  },
+  "output": {
+    "format": "json",
+    "verbose": false,
+    "colors": true
+  },
+  "batch": {
+    "concurrency": 5,
+    "timeout": 10000,
+    "retries": 2
+  }
+}
+```
+
+**Configuration Sections**:
+- `validation`: Schema URL, validation mode, custom rules
+- `output`: Default format, verbosity, color output
+- `batch`: Concurrency limits, timeouts, retry logic
 
 ### Content Management System Plugins
 

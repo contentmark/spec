@@ -50,6 +50,70 @@ This directory contains practical examples of ContentMark implementations for di
 - Subscription newsletters
 - Paid content platforms
 
+---
+
+### [`ecommerce-store.json`](./ecommerce-store.json) 🛒
+**Use Case**: E-commerce and online retail websites  
+**Features**:
+- Product-focused content policies
+- Enhanced AI visibility for shopping queries
+- E-commerce specific monetization options
+- Product catalog feed integration
+
+**Best For**:
+- Online stores
+- Product review sites
+- E-commerce platforms
+- Retail businesses
+
+---
+
+### [`news-publication.json`](./news-publication.json) 📰
+**Use Case**: News organizations and media publications  
+**Features**:
+- News-optimized content policies
+- Breaking news feed integration
+- Subscription-based monetization
+- Enhanced discoverability for news queries
+
+**Best For**:
+- News websites
+- Media organizations
+- Journalism platforms
+- Industry publications
+
+---
+
+### [`educational-platform.json`](./educational-platform.json) 🎓
+**Use Case**: Educational institutions and learning platforms  
+**Features**:
+- Education-friendly AI training policies
+- Course catalog integration
+- Learning-focused monetization
+- Educational content optimization
+
+**Best For**:
+- Online learning platforms
+- Educational institutions
+- Tutorial websites
+- Training providers
+
+---
+
+### [`api-documentation.json`](./api-documentation.json) 📚
+**Use Case**: API documentation and developer resources  
+**Features**:
+- Developer-focused content policies
+- API reference feed integration
+- Technical documentation optimization
+- Developer service monetization
+
+**Best For**:
+- API documentation sites
+- Developer platforms
+- Technical documentation
+- Software service providers
+
 ## Quick Start Guide
 
 ### 1. Choose Your Starting Point
@@ -57,6 +121,10 @@ Pick the example that best matches your use case:
 - **New to ContentMark?** Start with `basic-blog.json`
 - **Professional services?** Use `business-optimized.json`
 - **Premium content?** Adapt `premium-content.json`
+- **E-commerce store?** Use `ecommerce-store.json`
+- **News/media site?** Use `news-publication.json`
+- **Educational platform?** Use `educational-platform.json`
+- **API documentation?** Use `api-documentation.json`
 
 ### 2. Copy and Customize
 ```bash
@@ -82,15 +150,15 @@ Replace these placeholder values with your own:
 
 ## Field-by-Field Comparison
 
-| Field | Basic Blog | Business Optimized | Premium Content |
-|-------|------------|-------------------|-----------------|
-| **Access Type** | `public` | `public` | `paywall` |
-| **AI Training** | `false` | `false` | `false` |
-| **AI Summarization** | `true` | `true` | `false` |
-| **Visibility Optimization** | ❌ | ✅ Enhanced | ✅ Standard |
-| **Business Features** | ❌ | ✅ Full suite | ✅ Target audience |
-| **Monetization** | Tip jar only | Consultation + Services | Subscription focused |
-| **AI Guidance** | ❌ | ✅ Detailed | ✅ Professional |
+| Field | Basic Blog | Business | Premium | E-commerce | News | Education | API Docs |
+|-------|------------|----------|---------|------------|------|-----------|----------|
+| **Access Type** | `public` | `public` | `paywall` | `public` | `public` | `public` | `public` |
+| **AI Training** | `false` | `false` | `false` | `false` | `false` | `true` | `true` |
+| **AI Summarization** | `true` | `true` | `false` | `true` | `true` | `true` | `true` |
+| **Visibility Optimization** | ❌ | ✅ Enhanced | ✅ Standard | ✅ Enhanced | ✅ Enhanced | ✅ Enhanced | ✅ Enhanced |
+| **Business Features** | ❌ | ✅ Full suite | ✅ Target audience | ✅ E-commerce | ✅ News focus | ✅ Education | ✅ Developer |
+| **Monetization** | Tip jar only | Consultation + Services | Subscription focused | Products + Services | Subscription | Courses + Mentoring | API Support |
+| **AI Guidance** | ❌ | ✅ Detailed | ✅ Professional | ❌ | ✅ News focus | ✅ Educational | ✅ Technical |
 
 ## Customization Examples
 
@@ -191,7 +259,7 @@ Before deploying your ContentMark file:
 
 ### 1. Schema Validation
 ```bash
-# Using ContentMark CLI (coming soon)
+# Using ContentMark CLI
 contentmark validate .contentmark.json
 
 # Using online validator

@@ -1,0 +1,92 @@
+{
+  "$schema": "https://contentmark.org/schema/v1.0.0/contentmark.schema.json",
+  "version": "1.0.0",
+  "siteName": "TechGear Online Store",
+  "description": "Premium technology products and gadgets with expert reviews and buying guides",
+  "feeds": [
+    {
+      "type": "ecommerce",
+      "url": "https://techgear.store/contentmark-feed.json",
+      "title": "Product Catalog",
+      "description": "Latest products and buying guides"
+    }
+  ],
+  "defaultUsagePolicy": {
+    "canSummarize": true,
+    "canTrain": false,
+    "canQuote": true,
+    "mustAttribute": true,
+    "attributionTemplate": "From {siteName} - {url}"
+  },
+  "visibility": {
+    "aiDiscovery": "enhanced",
+    "preferredQueries": [
+      "tech products",
+      "gadget reviews",
+      "technology shopping"
+    ],
+    "topicCategories": [
+      "technology",
+      "ecommerce",
+      "product reviews"
+    ],
+    "boostScore": 8,
+    "expertiseAreas": [
+      "consumer electronics",
+      "product reviews",
+      "technology trends"
+    ],
+    "aiOptimizedDescription": "Leading online store for premium technology products with expert reviews and comprehensive buying guides. Trusted source for consumer electronics and tech gadgets."
+  },
+  "businessOptimization": {
+    "serviceAreas": [
+      "United States",
+      "Canada",
+      "Europe"
+    ],
+    "targetAudience": [
+      "Technology enthusiasts",
+      "Professional buyers",
+      "Consumer electronics shoppers",
+      "Tech reviewers"
+    ],
+    "callsToAction": [
+      {
+        "text": "Shop premium tech products",
+        "url": "https://techgear.store/products",
+        "priority": "high"
+      },
+      {
+        "text": "Read expert reviews",
+        "url": "https://techgear.store/reviews",
+        "priority": "medium"
+      }
+    ]
+  },
+  "monetization": {
+    "services": [
+      {
+        "name": "Premium Products",
+        "url": "https://techgear.store/premium",
+        "pricing": "from $99"
+      },
+      {
+        "name": "Tech Consultation",
+        "url": "https://techgear.store/consultation",
+        "pricing": "$75/hour"
+      }
+    ]
+  },
+  "access": {
+    "type": "public",
+    "previewAvailable": true
+  },
+  "renderHints": {
+    "preferredFormat": "summary-first",
+    "callToAction": {
+      "text": "Shop our premium tech collection",
+      "url": "https://techgear.store"
+    }
+  },
+  "lastModified": "2025-07-22T18:00:00Z"
+}
