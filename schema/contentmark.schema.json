@@ -80,7 +80,7 @@
       "properties": {
         "type": {
           "type": "string",
-          "enum": ["blog", "news", "podcast", "research", "business", "documentation"],
+          "enum": ["blog", "news", "podcast", "research", "business", "documentation", "ecommerce", "education", "api"],
           "description": "Type of content feed"
         },
         "url": {

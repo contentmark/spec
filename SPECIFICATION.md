@@ -560,7 +560,7 @@ With fallback to:
 
 Official validation tools are available at:
 - Online validator: https://contentmark.org/validate
-- CLI tool: https://github.com/contentmark/cli
+- CLI tool: https://github.com/contentmark/cli (supports 7 template types, batch processing, multiple output formats)
 - API endpoint: https://api.contentmark.org/validate
 
 ---
