@@ -176,7 +176,7 @@ The ContentMark specification is licensed under [MIT License](./LICENSE). You ar
 ## Get Started
 
 1. **Add ContentMark to your site**: Create `.well-known/contentmark.json`
-2. **Validate your implementation**: Use our [online validator](https://contentmark.org/validate)
+2. **Validate your implementation**: Use our [online validator](https://contentmark.org/validator)
 3. **Join the community**: [GitHub Discussions](https://github.com/contentmark/spec/discussions)
 4. **Follow updates**: Star this repository for updates
 
